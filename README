@@ -1,0 +1,7 @@
+db user = blog
+db host = mysql
+db pwd = 123456
+db name = firekylin
+
+1. docker-compse up -d
+2. visit http://hostIP to setup
