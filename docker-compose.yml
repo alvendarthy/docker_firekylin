@@ -8,9 +8,9 @@ services:
                         dockerfile: Dockerfile
                 restart: always
                 volumes:
-                        - /etc/localtime:/etc/localtime
+                        - /etc/localtime:/etc/localtime:ro
                 ports:
-                        - 80:8360
+                        - 8001:8360
                 depends_on:
                         - mysql
         mysql:
@@ -27,3 +27,13 @@ services:
                         MYSQL_PASSWORD : "123456"
                 expose:
                         - "3306"
+        isso:
+                image: wonderfall/isso
+                environment:
+                        - GID=1000
+                        - UID=1000
+                volumes:
+                        - ./isso/config:/config
+                        - ./isso/db:/db
+                ports:
+                        - "8002:8080"
