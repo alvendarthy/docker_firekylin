@@ -1,6 +1,9 @@
 db user = blog
+
 db host = mysql
+
 db pwd = 123456
+
 db name = firekylin
 
 0. edit isso/conf/isso.conf
