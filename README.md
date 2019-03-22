@@ -11,11 +11,15 @@ db name = firekylin
 1. docker-compse up -d
 2. visit http://hostIP to install && setup db
 3. goto admin dashboard -> system settings -> comment settings -> comment types -> other
-   then file the blank like this:
+   
+   then fill the blank like this:
+   ```
+
    <script data-isso="//www.yourdo.main/isso"
         src="//www.your.domain/isso/js/embed.min.js"></script>
    <section id="isso-thread"></section>
 
+   ```
 
 
 #### nginx config
