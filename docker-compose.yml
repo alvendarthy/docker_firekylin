@@ -1,16 +1,31 @@
 version: '3'
 
 services:
+        nginx:
+                #image: smebberson/alpine-nginx
+                build:
+                        context: ./nginx
+                        dockerfile: Dockerfile
+                restart: always
+                container_name: nginx
+                volumes:
+                        - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+                        - ./nginx/logs/:/var/log/nginx/
+                ports:
+                        - 80:80
+                depends_on:
+                        - firekylin
+                        - isso
         firekylin:
                 container_name: firekylin_app
-                build: 
-                        context: ./firekylin
-                        dockerfile: Dockerfile
+                image: firekylin/firekylin
                 restart: always
                 volumes:
                         - /etc/localtime:/etc/localtime:ro
-                ports:
-                        - 8001:8360
+                        - ./firekylin/web/db.js:/var/lib/firekylin/db.js
+                        - ./firekylin/web/upload/:/var/lib/firekylin/upload/
+                expose:
+                        - 8360
                 depends_on:
                         - mysql
         mysql:
@@ -35,5 +50,5 @@ services:
                 volumes:
                         - ./isso/config:/config
                         - ./isso/db:/db
-                ports:
-                        - "8002:8080"
+                expose:
+                        - 8080
