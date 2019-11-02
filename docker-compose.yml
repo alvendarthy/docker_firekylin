@@ -2,14 +2,11 @@ version: '3'
 
 services:
         nginx:
-                #image: smebberson/alpine-nginx
-                build:
-                        context: ./nginx
-                        dockerfile: Dockerfile
+                image: evild/alpine-nginx
                 restart: always
                 container_name: nginx
                 volumes:
-                        - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+                        - ./nginx/nginx.conf:/etc/nginx/conf/nginx.conf:ro
                         - ./nginx/logs/:/var/log/nginx/
                 ports:
                         - 80:80
