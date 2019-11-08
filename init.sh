@@ -1,4 +1,4 @@
-read -p "your domain:(like baidu.com, without www): " DOMAIN
+read -p "your domain:(like baidu.com): " DOMAIN
 
 read -t 10 -p "Now press ENTER to set domain."
 
