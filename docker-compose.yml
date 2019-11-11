@@ -21,6 +21,11 @@ services:
                         - /etc/localtime:/etc/localtime:ro
                         - ./firekylin/web/db.js:/var/lib/firekylin/db.js
                         - ./firekylin/web/upload/:/var/lib/firekylin/upload/
+                        - ./firekylin/web/theme/:/opt/firekylin/www/theme/
+                        - ./firekylin/web/static/css:/opt/firekylin/www/static/css
+                        - ./firekylin/web/static/img:/opt/firekylin/www/static/img
+                        - ./firekylin/web/static/font:/opt/firekylin/www/static/font
+                        - ./firekylin/web/static/module:/opt/firekylin/www/static/module
                 expose:
                         - 8360
                 depends_on:
